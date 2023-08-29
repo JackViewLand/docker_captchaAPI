@@ -1,0 +1,20 @@
+version: "3"
+services:
+  openresty-captcha:
+    image: openresty/openresty:1.19.3.2-3-alpine-fat
+    container_name: openresty_captcha
+    network_mode: "host"
+    volumes:
+    - ./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+    - ./certs:/usr/local/openresty/nginx/certs
+    - ./logs:/usr/local/openresty/nginx/logs
+    - ./data:/data
+    - ./init.sh:/tmp/init.sh
+    command: /tmp/init.sh
+
+    environment:
+      captchaKey: GlyqdNjNYhYBFnSOUqoIbhJiznmx-d3lOM7d_K8
+      captchaId: o8xWOEIiQTXuPTHwQMvbvVR191rMhFxjPnm_EPk
+      captchaUrl_html: https://assets.siltcha.com/js/sil_service.js
+      captchaUrl_verify: https://info.silsmug.com/captcha/verify
+      captchaUrl_status: https://info.silsmug.com/captcha/status
