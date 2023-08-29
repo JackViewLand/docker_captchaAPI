@@ -127,7 +127,6 @@ local function access(user_uniInfo,user_token)
     end
 end
 
-
 _M.access = access
 _M.checkCaptchaStatus=checkCaptchaStatus
 

@@ -12,7 +12,6 @@ local function captchaMode()
     --get bucketList timeout--
     ngx.ctx.bucketListTime = ngx.var.bucketListTime
 
-
     --generate user token--
     local pass = false
     local user_info = tool.getInfo()
